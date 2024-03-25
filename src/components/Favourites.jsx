@@ -2,6 +2,7 @@ import { Col, Row, ListGroup, Container, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { IoHomeOutline } from "react-icons/io5";
 
 const Favourites = () => {
   const favJob = useSelector((state) => {
@@ -11,12 +12,17 @@ const Favourites = () => {
 
   return (
     <Container>
-      <h1>YOUR FAVOURITES JOBS</h1>
+      <h1 className="text-center">YOUR FAVOURITES JOBS</h1>
+      <div className="mb-5 text-end">
+        <Link to={"/"} id="TornaHome">
+          Torna Alla HOME <IoHomeOutline />
+        </Link>
+      </div>
       <Row>
         <Col>
           <ListGroup>
             {favJob.map((state, i) => (
-              <ListGroup.Item key={i}>
+              <ListGroup.Item className="d-flex justify-content-between" key={i}>
                 <Link to={`/${state.company_name}`}>{state.company_name}</Link>
                 <Button
                   variant="danger"

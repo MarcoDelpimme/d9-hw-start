@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+a {
+  text-decoration: none;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border-color: rgb(255, 255, 255);
+  border: solid 1px;
+  color: rgb(78, 78, 78);
+}
+
+a:hover {
+  background-color: rgba(0, 119, 255, 0.948);
+  color: white;
+  transition: 0.5s;
+}
+
+#TornaHome {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  background-color: lightgray;
+}
+
+#TornaHome:hover {
+  background-color: rgb(195, 255, 0);
+
+  transition: 0.5s;
+}
