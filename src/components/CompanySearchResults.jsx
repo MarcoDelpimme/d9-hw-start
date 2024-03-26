@@ -14,18 +14,21 @@ const CompanySearchResults = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getJobs = async () => {
-    try {
-      const response = await fetch(baseEndpoint + params.company);
-      if (response.ok) {
-        const { data } = await response.json();
+  const getJobs = () => {
+    fetch(baseEndpoint + params.company)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("errore");
+        }
+      })
+      .then(({ data }) => {
         setJobs(data);
-      } else {
-        alert("Error fetching results");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
+import { deleteJobs } from "../redux/actions";
 
 const Favourites = () => {
   const favJob = useSelector((state) => {
     return state.favState.content;
   });
+
   const dispatch = useDispatch();
 
   return (
@@ -27,10 +29,7 @@ const Favourites = () => {
                 <Button
                   variant="danger"
                   onClick={() => {
-                    dispatch({
-                      type: "DELETE_JOBS",
-                      payload: i,
-                    });
+                    dispatch(deleteJobs(i));
                   }}
                 >
                   <FaTrash />
